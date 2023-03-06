@@ -11,7 +11,7 @@ import java.net.Socket;
 
 public class ProtocolServer {
     
-	public static void main(String[] args) throws IOException{
+	public static void main(String[] args) {
         try {
 			ServerSocket serverSocket = new ServerSocket(9500); // 포트번호를 9500번으로 지정
 			while (true) {
@@ -29,6 +29,7 @@ public class ProtocolServer {
 				writer.flush();
 			}
 		} catch (IOException e) {
+            e.printStackTrace();
 		}
     }
     

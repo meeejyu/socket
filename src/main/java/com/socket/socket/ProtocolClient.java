@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class ProtocolClient {
     
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) {
 		
         //클라이언트 -> 소켓
         try {
