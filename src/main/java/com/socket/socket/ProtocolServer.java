@@ -12,11 +12,13 @@ import java.net.Socket;
 public class ProtocolServer {
     
 	public static void main(String[] args) {
+		ServerSocket serverSocket = null;
+		Socket socket = null;
         try {
-			ServerSocket serverSocket = new ServerSocket(9500); // 포트번호를 9500번으로 지정
+			serverSocket = new ServerSocket(9500); // 포트번호를 9500번으로 지정
 			while (true) {
 				System.out.println("연결을 기다리는 중...");
-				Socket socket = serverSocket.accept();
+				socket = serverSocket.accept();
 				InetSocketAddress isa = (InetSocketAddress) socket.getRemoteSocketAddress();
 				System.out.println("연결 수락됨" + isa.getHostName());
 				// 소켓 -> 서버
@@ -29,7 +31,15 @@ public class ProtocolServer {
 				writer.flush();
 			}
 		} catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("에러 출력 : "+e.getMessage());
+		} finally {
+			try {
+				socket.close();
+				serverSocket.close();
+				System.out.println("연결 종료");
+			} catch (Exception e) {
+				System.out.println("에러 출력 : "+e.getMessage());
+			}
 		}
     }
     

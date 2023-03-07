@@ -12,12 +12,14 @@ public class ProtocolClient {
     
     public static void main(String[] args) {
 		
+        Socket socket = null;
+        Scanner sc = new Scanner(System.in);
+
         //클라이언트 -> 소켓
         try {
             while(true) {
-                Socket socket = new Socket("192.168.0.118", 9500);
+                socket = new Socket("192.168.0.118", 9500);
     			System.out.println("연결성공");
-                Scanner sc = new Scanner(System.in);
                 String msg = sc.next();
                 System.out.println("클라이언트 : "+msg);
 		
@@ -35,9 +37,18 @@ public class ProtocolClient {
                 // reader.close();
             }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            System.out.println("에러 출력 : "+e.getMessage());
+        } finally {
+            try {
+                sc.close();
+                if(socket != null) {
+                    socket.close();
+                }
+            } catch (Exception e) {
+                System.out.println("에러 출력 : "+e.getMessage());
+            }
         }
+        
     }
     
 }
