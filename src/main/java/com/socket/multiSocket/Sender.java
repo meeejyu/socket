@@ -1,4 +1,4 @@
-package com.socket.socket;
+package com.socket.multiSocket;
 
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -17,7 +17,7 @@ public class Sender extends Thread{
             out = new PrintWriter(this.socket.getOutputStream(), true);
             this.name = name;            
         } catch (Exception e) {
-            System.out.println("예외 > Sender > 생성장 : "+e.getMessage());
+            System.out.println("예외 > Sender > 생성자 : "+e.getMessage());
         }
     }
 

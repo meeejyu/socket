@@ -1,11 +1,8 @@
-package com.socket.socket;
+package com.socket.multiSocket;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -64,7 +61,7 @@ class MultiServerT extends Thread {
 			out = new PrintWriter(this.socket.getOutputStream(), true);
 			in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
 		} catch (Exception e) {
-			System.out.println("예외 : "+e.getMessage());
+			System.out.println("예외 : " + e.getMessage());
 		}
 	}
 
