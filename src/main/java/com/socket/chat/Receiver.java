@@ -31,6 +31,9 @@ public class Receiver extends Thread{
                 System.out.println("Thread Receive : "+in.readLine());
             } catch (SocketException se) {
                 System.out.println("SocketException 에러 : "+se.getMessage());
+                if(socket.isClosed()) {
+                    break;
+                }
             } catch (Exception e) {
                 System.out.println("예외 > Receiver > run1 " +e);
             }
