@@ -1,4 +1,4 @@
-package com.socket.multiSocket;
+package com.socket.chat;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

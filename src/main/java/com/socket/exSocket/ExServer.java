@@ -1,4 +1,4 @@
-package com.socket.multiSocket;
+package com.socket.exSocket;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -6,12 +6,12 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class MultiServer {
+public class ExServer {
     
 	ServerSocket serverSocket = null;
 	Socket socket = null;
 	
-	public MultiServer() {
+	public ExServer() {
 
 	}
 
@@ -42,7 +42,7 @@ public class MultiServer {
 
 	public static void main(String[] args) {
 		
-		MultiServer ms = new MultiServer();
+		ExServer ms = new ExServer();
 		ms.init();
 
     }

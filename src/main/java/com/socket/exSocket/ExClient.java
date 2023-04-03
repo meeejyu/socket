@@ -1,9 +1,12 @@
-package com.socket.multiSocket;
+package com.socket.exSocket;
 
 import java.net.Socket;
 import java.util.Scanner;
 
-public class MultiClient {
+import com.socket.chat.Receiver;
+import com.socket.chat.Sender;
+
+public class ExClient {
     
     public static void main(String[] args) {
 
