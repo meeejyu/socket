@@ -7,6 +7,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
+/*
+ * 접속자 수 확인 가능
+ * 최대 10명까지 가능하게 생성하기
+ */
 public class MultiServerV2 {
     
     ServerSocket serverSocket = null;

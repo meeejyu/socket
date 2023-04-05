@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <html xmlns:th="http://www.thymeleaf.org" lang="en">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="../reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
     <title>matching</title>
 </head>
@@ -37,6 +38,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 30px;
     }
     header .right {
         flex : 1;
@@ -50,6 +52,51 @@
     header .right div{
         margin-right: 10px;
     }
+
+    main {
+        padding: 20px 70px;
+        height: 800px;
+        overflow: scroll;
+    }
+    main ul {
+        display: flex;
+        flex-direction: column;
+    }
+    main ul .message-left {
+        background-color: #b2b2b2;
+        width: 40%;
+        padding: 0 5%;
+        font-size: 30px;
+        height: 30px;
+        margin-right: auto;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+    main ul .message-right {
+        background-color: #b2b2b2;
+        width: 40%;
+        padding: 0 5%;
+        font-size: 30px;
+        /* height: 30px; */
+        margin-left: auto;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+    footer {
+        width: 100%;
+    }
+    footer div {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+    footer div input{
+        flex: 9;
+    }
+    footer div button{
+        flex: 1;
+    }
+
 
 </style>
 <body>
@@ -69,12 +116,34 @@
             </div>
         </header>
         <main>
-
+            <ul class="chat">
+                <li class="message-left">안녕 빠이빠이</li>
+                <li class="message-right" id="message-right">안녕하삼</li>
+            </ul>
         </main>
         <footer>
-
+            <div class="message">
+                <input type="text" id="input-message">
+                <button id="send-button" onclick="test()">전송</button>
+            </div>
         </footer>
     </div>
 </body>
+<script type="text/javascript">
+
+    // 입력한 메세지 동적으로 말풍선 생성
+    function test() {
+        // controller와 통신 추가
+        var message = $('#input-message').val();
+        var message2 = $('#input-message').val().trim();
+        // alert("트림한 길이"+message2.length);
+        if(message.trim().length > 0) {
+            message = message.replace(/\s/g, '&nbsp;');
+            // alert(message);
+        $('<li class="message-right">'+message+'</li>').appendTo('.chat');
+        }
+    }
+
+</script>
 </html>
 
